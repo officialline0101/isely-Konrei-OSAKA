@@ -1686,6 +1686,9 @@
 
             }
 
+// 追加（スクリプトの上部どこでもOK）
+let spinnerDelayTimer = null;
+
             function nextmonth() {
                 currentDate.setMonth(currentDate.getMonth() + 1); // 翌月に移動
                 currentDate.setDate(1); // 1日に設定
@@ -1708,13 +1711,24 @@
                 fetchAvailability(currentDate);
             }
 
-            function showLoadingSpinner() {
-                document.getElementById('loadingSpinner').style.display = 'block';
-            }
+function showLoadingSpinner() {
+  const el = document.getElementById('loadingSpinner');
+  if (!el) return;
+  // 以前の遅延をキャンセルし、すぐ表示
+  if (spinnerDelayTimer) { clearTimeout(spinnerDelayTimer); spinnerDelayTimer = null; }
+  el.style.display = 'block';
+}
 
-            function hideLoadingSpinner() {
-                document.getElementById('loadingSpinner').style.display = 'none';
-            }
+function hideLoadingSpinner() {
+  const el = document.getElementById('loadingSpinner');
+  if (!el) return;
+  // 「消す」のを +2秒 遅らせる
+  if (spinnerDelayTimer) clearTimeout(spinnerDelayTimer);
+  spinnerDelayTimer = setTimeout(() => {
+    el.style.display = 'none';
+    spinnerDelayTimer = null;
+  }, 1000); // ← ここが追加した2秒
+}
         </script>
 </body>
 
