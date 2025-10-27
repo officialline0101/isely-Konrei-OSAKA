@@ -1355,7 +1355,7 @@
 
                 liff.sendMessages([{
                     type: 'text',
-                    text: `【OSAKA予約フォーム】\n≪GIGI VERDE OSAKA≫\nお名前：${formData.name}\n電話番号：${formData.phone}\nコース：婚礼相談\nメニュー：${formData.selectedSymptom}\n希望日時：\n${formData.dates[0]}\nメッセージ：${formData.message}`
+                    text: `【OSAKAウェディング】\n≪GIGI VERDE OSAKA≫\nお名前：${formData.name}\n電話番号：${formData.phone}\nコース：婚礼相談\nメニュー：${formData.selectedSymptom}\n希望日時：\n${formData.dates[0]}\nメッセージ：${formData.message}`
                 }]).then(() => {
                     alert('当日キャンセルは無いようにお願いいたします。');
                     liff.closeWindow();
@@ -1384,7 +1384,7 @@
                     return;
                 }
 
-                const url = 'https://script.google.com/macros/s/AKfycbw718aMW_uxjk8zkMTeimsQF3Vzv8SzNtVq6Abn-qjlKAk76v-pjI34SeDx40m8z1v00w/exec' +
+                const url = 'https://script.google.com/macros/s/AKfycbxOy8oMKTBZCwYMPsJ1ldf0e1BWm8dXvEHRs-HAUSDs7F0hRnQcSK5W-2WPL-85ja7M/exec' +
                     `?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`;
 
                 try {
