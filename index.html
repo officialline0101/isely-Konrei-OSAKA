@@ -173,7 +173,7 @@
         /* --------------------------------------------------
            カレンダー
            -------------------------------------------------- */
-        .calendar-container {
+.calendar-container {
             margin-top: 10px;
             border: 1px solid #999; 
             border-radius: 8px;
@@ -208,10 +208,11 @@
             flex: 1;
         }
 
-        .calendar table {
+.calendar table {
             width: 100%;
             border-collapse: collapse;
             font-size: 12px;
+            table-layout: fixed; /* ★重要：これを追加すると、指定のない列が均等幅になります */
         }
         
         .calendar th {
@@ -219,8 +220,10 @@
             color: #1a1a1a;
             padding-bottom: 8px;
             border: 1px solid #999;
-            padding: 8px;
+            padding: 1px;
             background: #fff;
+            text-align: center; /* ★追加：曜日を中央揃えにした方が綺麗です */
+            vertical-align: middle;
         }
         
         .calendar td {
@@ -228,6 +231,8 @@
             padding: 10px 0;
             cursor: pointer;
             border: 1px solid #999;
+            vertical-align: middle;
+            height: 20px; /* ★追加：セルの高さもある程度揃えておくと見やすいです */
         }
         
         .calendar td:hover {
